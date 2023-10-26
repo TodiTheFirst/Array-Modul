@@ -47,5 +47,9 @@ person = null;
 console.log(person);
 
 const personData = new WeakMap();
+personData.set(person, 'Extra Info!');
 
+person=null
+
+console.log(personData);
 
