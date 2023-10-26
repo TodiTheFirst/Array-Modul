@@ -122,16 +122,32 @@ const name = nameFragmets.join(' ');  // позволяет соеденить �
 
 console.log(name);
 
-const copieNameFragments = [...nameFragmets];   //...  позволяет добавить столько элементов сколько нужно до нужного кол-ва массив помещает как отдельные числа
+const copieNameFragments = [...nameFragmets];  
+ //... создает массив в который помещает все обькты для которые помещаются после указанных обьектов, и записывает название массива в данном случае это nameFragmets 
 nameFragmets.push('Mr');
 console.log(nameFragmets,copieNameFragments);
 
 console.log(Math.min(...prices)); //возвращает наименьшее число из перечисленных ВАЖНО РАБОТАЕТ ТОЛЬКО С ЧИСЛАМИ НЕ С МАСИВАМИ 
 
 const persons = [{ name: 'Oleg', age: 24}, { name: 'Deni', age: 23}];
-const copiedPersons = [...persons];
+const copiedPersons = [...persons.map(person => ({
+  name: person.name , 
+  age: person.age
+}))]; // в данной логике создаются новые обьекты
 
 persons.push({name: 'Ilya', age: 25})
+persons[0].age = 31;
 
 console.log(persons, copiedPersons);
+
+
+const nameData = ['Oleg', 'Gol','he',29];
+// const firstName = nameData [0];
+// const lastName = nameData [1];
+
+const [firstName, lastName, ... otherthing] = nameData;     //  данный метод позволяет разделять массив на обьекты сильно быстрее 
+console.log(firstName, lastName, otherthing);
+
+//ЕСЛИ ПОНАДОБИТСЯ ЧТО-ТО ИЗ ЭТОГО НЕ ЗАБУДЬ НАЗНАЧИТЬ ПУТЬ К ЭТИМ СКРИПТАМ В HTML
+
 
