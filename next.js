@@ -34,4 +34,18 @@ const ids = new Set([1,2,3]);
 
 // console.log(personData1.size);
 
+let person = {name: 'Oleg'};
+const persons = new WeakSet(); 
+//WeakSet() в отличие от обычного set позволяет убрать данные в гарбейдж коллектор чтоб данные больше не могли взаимодействовать с чем либо
+
+person.add(person);
+
+// ... some operation
+
+person = null; 
+
+console.log(person);
+
+const personData = new WeakMap();
+
 
